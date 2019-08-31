@@ -10,8 +10,8 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
-                conda activate test
-                python -m unittest test/test_your_function.py
+                sh 'conda activate test'
+                sh 'python -m unittest test/test_your_function.py'
             }
         }
         stage('Deploy') {
