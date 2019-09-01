@@ -2,16 +2,23 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Environment') {
             steps {
                 echo 'Building..'
+                sh 'virtualenv venv'
+                sh """
+                  source venv/bin/activate
+                  pip install -r requirements.txt
+                """
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing..'
-                sh 'conda activate test'
-                sh 'python -m unittest test/test_your_function.py'
+                sh """
+                  source venv/bin/activate
+                  python -m unittest test/test_your_function.py
+                """
             }
         }
         stage('Deploy') {
