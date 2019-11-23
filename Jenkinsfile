@@ -2,7 +2,7 @@ pipeline {
   agent {
     docker {
       image 'stdiff/justatest-base'
-      arg '-u worker'
+      args '-u worker'
     }
   }
   stages {
