@@ -1,27 +1,28 @@
 pipeline {
-    agent {
-        docker {
-            image 'stdiff/justatest-base'
-        }
+  agent {
+    docker {
+      image 'stdiff/justatest-base'
     }
-    stages {
-        stage("Environment check") {
-            steps {
-                sh "cat /tmp/nameplate"
-                sh "cat /etc/os-releases"
-                sh "python --version"
-                sh "pip list"
-            }
-        }
-        stage('Unit Test') {
-            steps {
-                sh "python -m unittest test/test_my_function.py"
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
+
+  }
+  stages {
+    stage('Environment check') {
+      steps {
+        sh 'cat /tmp/nameplate'
+        sh 'cat /etc/os-release'
+        sh 'python --version'
+        sh 'pip list'
+      }
     }
+    stage('Unit Test') {
+      steps {
+        sh 'python -m unittest test/test_my_function.py'
+      }
+    }
+    stage('Deploy') {
+      steps {
+        echo 'Deploying....'
+      }
+    }
+  }
 }
