@@ -9,10 +9,17 @@ FROM python:3.7-slim-buster
 
 WORKDIR /tmp
 
-## install development environment
+## nameplate
+## Just a note on the environment
+RUN echo "justatest-base" > nameplate
+RUN date >> nameplate
+
+## Install development environment
+## Needed for example pandas
 RUN apt-get update
 RUN apt-get -y install build-essential
 
-## prepare Python environment
+## Prepare Python environment
+## This section must be placed at the end.
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
