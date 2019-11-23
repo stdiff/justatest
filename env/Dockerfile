@@ -9,6 +9,10 @@ FROM python:3.7-slim-buster
 
 WORKDIR /tmp
 
+## nameplate (just a note on the environment)
+RUN echo "justatest-base" > nameplate
+RUN echo date >> nameplate
+
 ## install development environment
 RUN apt-get update
 RUN apt-get -y install build-essential
