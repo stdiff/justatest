@@ -19,7 +19,11 @@ RUN date >> nameplate
 RUN apt-get update
 RUN apt-get -y install build-essential
 
+## Create a working user
+RUN useradd -m worker
+WORKDIR /home/worker
+
 ## Prepare Python environment
 ## This section must be placed at the end.
 COPY requirements.txt requirements.txt
-RUN pip install -r requirements.txt
+RUN pip install --user -r requirements.txt
