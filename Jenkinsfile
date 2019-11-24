@@ -2,8 +2,10 @@ pipeline {
   agent {
     docker {
       image 'stdiff/justatest-base'
-      args '-u worker'
     }
+  }
+  options {
+      timeout(time: 1)
   }
   stages {
     stage('Environment check') {
