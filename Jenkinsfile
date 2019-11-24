@@ -12,7 +12,6 @@ pipeline {
       steps {
         sh 'cat /tmp/nameplate'
         sh 'cat /etc/os-release'
-        sh 'git log -1'
         sh 'whoami'
         sh 'python --version'
         sh 'pip list'
