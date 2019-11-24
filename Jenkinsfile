@@ -2,6 +2,7 @@ pipeline {
   agent {
     docker {
       image 'stdiff/justatest-base'
+      args '-u worker:worker'
     }
   }
   options {
