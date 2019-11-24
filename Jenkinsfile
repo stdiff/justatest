@@ -2,7 +2,7 @@ pipeline {
   agent {
     docker {
       image 'stdiff/justatest-base'
-      args '-u worker:worker'
+      args '-u root:sudo'
     }
   }
   options {
