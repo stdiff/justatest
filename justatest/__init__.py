@@ -1,6 +1,12 @@
 from typing import Union
 
 def my_function(x:Union[int,float]) -> Union[int,float]:
+    """
+    my function is a function which belongs to me.
+
+    :param x: number
+    :return: the answer
+    """
     return x**2
 
 class Logger:
